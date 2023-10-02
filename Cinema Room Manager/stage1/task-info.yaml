@@ -1,0 +1,6 @@
+type: edu
+files:
+  - name: test/CinemaTests.java
+    visible: false
+  - name: main.go
+    visible: true
