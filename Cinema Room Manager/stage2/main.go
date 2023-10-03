@@ -12,8 +12,8 @@ import "fmt"
 
 const (
 	smallRoomMaxSeats = 60
-	standardPrice     = 10
-	reducedPrice      = 8
+	frontHalfPrice    = 10
+	backHalfPrice     = 8
 )
 
 func main() {
@@ -27,13 +27,13 @@ func main() {
 	var totalIncome int
 
 	if totalSeats <= smallRoomMaxSeats {
-		totalIncome = totalSeats * standardPrice
+		totalIncome = totalSeats * frontHalfPrice
 	} else {
 		frontRows := rows / 2
-		totalIncome = frontRows * seatsPerRow * standardPrice
+		totalIncome = frontRows * seatsPerRow * frontHalfPrice
 
 		backRows := rows - frontRows
-		totalIncome += backRows * seatsPerRow * reducedPrice
+		totalIncome += backRows * seatsPerRow * backHalfPrice
 	}
 
 	fmt.Println("\nTotal income:")

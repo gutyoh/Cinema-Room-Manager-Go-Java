@@ -17,13 +17,7 @@ const (
 	backHalfPrice     = 8
 )
 
-func initializeCinemaRoom() (int, int, [][]string) {
-	var rows, seatsPerRow int
-	fmt.Println("Enter the number of rows:")
-	fmt.Scanln(&rows)
-	fmt.Println("Enter the number of seats in each row:")
-	fmt.Scanln(&seatsPerRow)
-
+func initializeCinemaRoom(rows int, seatsPerRow int) [][]string {
 	cinema := make([][]string, rows)
 	for rowIdx := range cinema {
 		cinema[rowIdx] = make([]string, seatsPerRow)
@@ -32,7 +26,7 @@ func initializeCinemaRoom() (int, int, [][]string) {
 		}
 	}
 
-	return rows, seatsPerRow, cinema
+	return cinema
 }
 
 func displayMainMenu(rows int, seatsPerRow int, cinema [][]string) {
@@ -120,6 +114,12 @@ func calculateTicketPrice(rows int, row int) int {
 }
 
 func main() {
-	rows, seatsPerRow, cinema := initializeCinemaRoom()
+	var rows, seatsPerRow int
+	fmt.Println("Enter the number of rows:")
+	fmt.Scanln(&rows)
+	fmt.Println("Enter the number of seats in each row:")
+	fmt.Scanln(&seatsPerRow)
+
+	cinema := initializeCinemaRoom(rows, seatsPerRow)
 	displayMainMenu(rows, seatsPerRow, cinema)
 }

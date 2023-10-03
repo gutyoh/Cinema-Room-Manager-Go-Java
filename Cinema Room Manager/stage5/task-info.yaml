@@ -4,5 +4,3 @@ files:
     visible: false
   - name: main.go
     visible: true
-  - name: main.exe~
-    visible: true
